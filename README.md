@@ -49,8 +49,9 @@ flowchart TD
 ├── project.ipynb           # Main Jupyter Notebook containing RAG pipeline & Gradio GUI
 ├── grow_a_garden.index     # Serialized FAISS vector index (binary)
 ├── knowledge_data.pkl      # Pickled text chunks & article metadata
+├── .envsample              # Sample environment configuration file
 ├── .gitignore              # Ignored environment and cache directories
-├── .env                    # Environment variables configuration
+├── .env                    # Environment variables configuration (gitignored)
 └── README.md               # Project documentation
 ```
 
@@ -64,8 +65,8 @@ Ensure you have **Python 3.10+** installed. Clone the repository and set up a vi
 
 ```bash
 # Clone the repository
-git clone https://github.com/nabinkhadka/nursing-guess-paper-rag.git
-cd nursing-guess-paper-rag
+git clone https://github.com/Anush-Maharajan/Non-creditAI.git
+cd Non-creditAI
 
 # Create and activate a virtual environment
 python -m venv .venv
@@ -82,21 +83,25 @@ source .venv/bin/activate
 Install all necessary packages via `pip`:
 
 ```bash
-pip install groq requests beautifulsoup4 langchain-text-splitters sentence-transformers faiss-cpu gradio tqdm pandas numpy
+pip install groq requests beautifulsoup4 langchain-text-splitters sentence-transformers faiss-cpu gradio tqdm python-dotenv
 ```
 
 ### 3. Set Up API Key
 
 Obtain an API key from [Groq Console](https://console.groq.com/) and configure it:
 
-- Either edit the `GROQ_API_KEY` variable inside `project.ipynb`:
-  ```python
-  GROQ_API_KEY = "your-groq-api-key-here"
-  ```
-- Or store it in `.env`:
-  ```env
-  GROQ_API_KEY=your-groq-api-key-here
-  ```
+1. Copy `.envsample` to create a `.env` file:
+   ```bash
+   # On macOS/Linux:
+   cp .envsample .env
+
+   # On Windows (PowerShell/CMD):
+   copy .envsample .env
+   ```
+2. Open `.env` and set your Groq API key:
+   ```env
+   GROQ_API_KEY=your_groq_api_key_here
+   ```
 
 ---
 
@@ -135,4 +140,5 @@ Obtain an API key from [Groq Console](https://console.groq.com/) and configure i
 
 ## 📜 License
 
-This project is open-source under the [MIT License](LICENSE).
+This project is open-source under the MIT License.
+
